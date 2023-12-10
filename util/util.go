@@ -66,3 +66,52 @@ func RtoDigit(r rune) (int, error) {
 
 	return digit, nil
 }
+
+func IntPow(base, exponent int) int {
+	if exponent == 0 {
+		return 1
+	}
+
+	result := base
+	for i := 2; i <= exponent; i++ {
+		result *= base
+	}
+
+	return result
+}
+
+func ParseInts(stringIntegers []string) []int {
+	parsed := []int{}
+
+	for _, str := range stringIntegers {
+		parsedInt, _ := strconv.ParseInt(str, 10, 64)
+		parsed = append(parsed, int(parsedInt))
+	}
+
+	return parsed
+}
+
+func Map[T, V any](ts []T, fn func(T, int) V) []V {
+	result := make([]V, len(ts))
+	for i, t := range ts {
+		result[i] = fn(t, i)
+	}
+	return result
+}
+
+func Filter[T any](ts []T, fn func(T, int) bool) []T {
+	return Reduce(ts, func(cur T, acc []T, idx int) []T {
+		if fn(cur, idx) {
+			acc = append(acc, cur)
+		}
+		return acc
+	}, []T{})
+}
+
+func Reduce[T, V any](ts []T, fn func(T, V, int) V, initial V) V {
+	result := initial
+	for i, t := range ts {
+		result = fn(t, result, i)
+	}
+	return result
+}

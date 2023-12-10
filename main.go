@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/bill-kerr/advent-of-code-2023/day03"
+	"github.com/bill-kerr/advent-of-code-2023/day05"
 	"github.com/bill-kerr/advent-of-code-2023/util"
 )
 
@@ -16,6 +16,6 @@ func main() {
 			util.CreateTemplate(name)
 		}
 	} else {
-		day03.Run()
+		day05.Run()
 	}
 }
