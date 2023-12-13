@@ -115,3 +115,22 @@ func Reduce[T, V any](ts []T, fn func(T, V, int) V, initial V) V {
 	}
 	return result
 }
+
+func GreatestCommonDenominator(a, b int) int {
+	for b != 0 {
+		t := b
+		b = a % b
+		a = t
+	}
+	return a
+}
+
+func LeastCommonMultiple(a, b int, integers ...int) int {
+	result := a * b / GreatestCommonDenominator(a, b)
+
+	for i := 0; i < len(integers); i++ {
+		result = LeastCommonMultiple(result, integers[i])
+	}
+
+	return result
+}
