@@ -39,6 +39,14 @@ func SumSlice(slice []int) int {
 	return sum
 }
 
+func SubSlice(slice []int) int {
+	sub := 0
+	for _, val := range slice {
+		sub -= val
+	}
+	return sub
+}
+
 func Reverse[S ~[]E, E any](s S) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
 		s[i], s[j] = s[j], s[i]
@@ -114,6 +122,16 @@ func Reduce[T, V any](ts []T, fn func(T, V, int) V, initial V) V {
 		result = fn(t, result, i)
 	}
 	return result
+}
+
+func Every[T any](ts []T, fn func(T, int) bool) bool {
+	every := true
+	for i, t := range ts {
+		if !fn(t, i) {
+			every = false
+		}
+	}
+	return every
 }
 
 func GreatestCommonDenominator(a, b int) int {
