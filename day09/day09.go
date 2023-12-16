@@ -20,7 +20,6 @@ func part1(lines []string) {
 			if util.Every(numbers, func(number int, _ int) bool {
 				return number == lastNumber
 			}) {
-				// fmt.Println("breaking", numbers, lastNumbers)
 				break
 			}
 
