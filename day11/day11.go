@@ -73,7 +73,6 @@ func findExpandedGalaxyPositions(lines []string, expansionFactor int) []position
 
 		if emptyRows[y] {
 			yOffset += expansionFactor
-			continue
 		} else {
 			yOffset++
 		}
