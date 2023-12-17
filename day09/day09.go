@@ -45,7 +45,6 @@ func part2(lines []string) {
 			if util.Every(numbers, func(number int, _ int) bool {
 				return number == firstNumber
 			}) {
-				// fmt.Println("breaking", numbers, lastNumbers)
 				break
 			}
 
