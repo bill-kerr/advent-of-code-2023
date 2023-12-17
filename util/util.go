@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"log"
+	"math"
 	"os"
 	"strconv"
 )
@@ -151,4 +152,8 @@ func LeastCommonMultiple(a, b int, integers ...int) int {
 	}
 
 	return result
+}
+
+func AbsInt(num int) int {
+	return int(math.Abs(float64(num)))
 }
